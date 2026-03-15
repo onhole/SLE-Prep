@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>SLE Prep</title>
+</head>
+<body>
+    <main class="page-shell">
+        <section class="study-card" aria-labelledby="app-title">
+            <p class="eyebrow">Literature Drill</p>
+            <h1 id="app-title">SLE Prep</h1>
+            <p class="subtitle">Fast author-work recall practice.</p>
+
+            <section class="scoreboard" aria-label="Scoreboard" aria-live="polite">
+                <article class="score-item">
+                    <p class="score-label">First-Try Score</p>
+                    <p id="first-try-score" class="score-value">0</p>
+                </article>
+                <article class="score-item">
+                    <p class="score-label">Total Correct</p>
+                    <p id="total-correct" class="score-value">0</p>
+                </article>
+                <article class="score-item">
+                    <p class="score-label">Timer</p>
+                    <p id="elapsed-time" class="score-value">00:00</p>
+                </article>
+                <article class="score-item">
+                    <p class="score-label">Left This Round</p>
+                    <p id="questions-remaining" class="score-value">0</p>
+                </article>
+            </section>
+
+            <p id="question" class="question" aria-live="polite"></p>
+
+            <div class="input-row">
+                <label for="answer" class="sr-only">Your answer</label>
+                <input type="text" id="answer" placeholder="Type your answer..." autocomplete="off">
+                <button id="submit-btn" type="button">Check</button>
+            </div>
+
+            <p id="feedback" class="feedback" aria-live="polite"></p>
+
+            <section id="progress-tracker" class="progress-tracker" aria-live="polite">
+                <p id="progress-label" class="progress-label"></p>
+                <p id="progress-list" class="progress-list">None yet.</p>
+            </section>
+
+            <div class="actions">
+                <button id="next-btn" type="button" class="ghost-btn">Skip Question</button>
+            </div>
+        </section>
+    </main>
+
+    <section id="round-summary-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="round-summary-title">
+        <div class="modal-backdrop"></div>
+        <article class="modal-card">
+            <p class="eyebrow">Round Complete</p>
+            <h2 id="round-summary-title">Your Results</h2>
+
+            <div class="modal-score-grid">
+                <p class="modal-score-label">Round First-Try</p>
+                <p id="summary-round-first-try" class="modal-score-value">0</p>
+
+                <p class="modal-score-label">Round Correct</p>
+                <p id="summary-round-correct" class="modal-score-value">0</p>
+
+                <p class="modal-score-label">Round First-Try Rate</p>
+                <p id="summary-round-rate" class="modal-score-value">0%</p>
+
+                <p class="modal-score-label">Round Time</p>
+                <p id="summary-round-time" class="modal-score-value">00:00</p>
+
+                <p class="modal-score-label">Session First-Try</p>
+                <p id="summary-session-first-try" class="modal-score-value">0</p>
+
+                <p class="modal-score-label">Session Correct</p>
+                <p id="summary-session-correct" class="modal-score-value">0</p>
+
+                <p class="modal-score-label">Session Time</p>
+                <p id="summary-session-time" class="modal-score-value">00:00</p>
+            </div>
+
+            <section class="summary-review" aria-labelledby="summary-review-title">
+                <h3 id="summary-review-title">Review: Not First-Try</h3>
+                <ul id="summary-missed-list" class="summary-missed-list"></ul>
+            </section>
+
+            <section class="summary-share" aria-labelledby="summary-share-title">
+                <h3 id="summary-share-title">Share With Friends</h3>
+                <textarea id="summary-share-text" rows="7" readonly></textarea>
+                <div class="summary-share-actions">
+                    <button id="copy-share-btn" type="button">Copy Score Summary</button>
+                    <p id="copy-share-status" class="copy-share-status" aria-live="polite"></p>
+                </div>
+            </section>
+
+            <div class="modal-actions">
+                <button id="next-round-btn" type="button">Start Next Round</button>
+            </div>
+        </article>
+    </section>
+</body>
+</html>
