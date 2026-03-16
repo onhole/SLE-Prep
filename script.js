@@ -255,7 +255,7 @@ function showRoundSummaryModal() {
     const roundTime = formatElapsedTime(roundElapsedSeconds);
     const sessionTime = formatElapsedTime(sessionElapsedSeconds);
 
-    submitRoundScore(roundCorrect);
+    submitRoundScore(roundFirstTry);
 
     summaryRoundFirstTryElement.textContent = `${roundFirstTry}/${questionsPerRound}`;
     summaryRoundCorrectElement.textContent = `${roundCorrect}/${questionsPerRound}`;
